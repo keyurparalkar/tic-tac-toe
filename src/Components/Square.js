@@ -3,8 +3,8 @@ import './Square.css';
 
 const Square = (props) => {
     return(
-        <div className="square">
-            {props.value ? props.value : ''}
+        <div className="square" onClick={()=>props.onClick()}>
+            {props.value ? 'X' : 'O'}
         </div>
     );
 }
