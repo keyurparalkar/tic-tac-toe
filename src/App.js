@@ -5,7 +5,6 @@ import {Game} from './Components/Game.js';
 function App() {
   return (
     <div className="App">
-      <h1>Hello World!!!!!</h1>
       <Game />
     </div>
   );
