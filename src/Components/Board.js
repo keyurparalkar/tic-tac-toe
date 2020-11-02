@@ -20,6 +20,9 @@ class Board extends React.Component {
         const square = this.state.boardState.slice();
         let isXVal = this.state.isX;
 
+        if(square[i]){
+            return;
+        }
         if(this.state.isX){
             square[i] = 'X';
             isXVal=false;
