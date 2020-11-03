@@ -9,6 +9,7 @@ import React from 'react';
 import './App.css';
 import { Game } from './Components/Game.js';
 import {Home} from './Components/Home.js';
+import {PickSide} from './Components/PickSide.js';
 
 
 function App() {
@@ -36,6 +37,11 @@ function App() {
         <Route exact path="/game">
             <Game/>
         </Route>
+
+        <Route exact path="/pickSide">
+            <PickSide/>
+        </Route>
+
       </Switch>
     </Router>
 

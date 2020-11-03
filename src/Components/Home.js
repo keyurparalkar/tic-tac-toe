@@ -12,11 +12,11 @@ export const Home = (props) => {
                 <img src={O} alt="o-marker"/>
             </div>
             <h2> Choose your playmode </h2>
-            <div className="pick-side-buttons">
-                <button>
+            <div className="pick-player-buttons">
+                <button >
                     With AI
                 </button>
-                <button>
+                <button >
                     With a friend
                 </button>
             </div>
