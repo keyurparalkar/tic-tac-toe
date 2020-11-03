@@ -1,7 +1,7 @@
 import React from 'react';
 import Square from './Square.js';
 
-import './Board.css';
+import './StyleSheets/Board.css';
 
 class Board extends React.Component {
     constructor(props) {
