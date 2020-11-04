@@ -5,7 +5,6 @@ import O from './Icons/o.svg';
 import x_mark from './Icons/x-mark.svg';
 import "./StyleSheets/Home.css";
 
-
 const mapStateToProps = (state)=>{
     return {
         opponentPlayer: state.opponentPlayer
@@ -14,7 +13,6 @@ const mapStateToProps = (state)=>{
 
 class Home extends React.Component{
     render(){
-        console.log(this.props.opponentPlayer)
         return(
             <div className="home-container">
                 <div className="marker-icons">

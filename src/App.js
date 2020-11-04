@@ -8,7 +8,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 import './App.css';
-import { Game } from './Components/Game.js';
+import Board from './Components/Board.js';
 import Home from './Components/Home.js';
 import { PickSide } from './Components/PickSide.js';
 import store from './Components/Store/Store.js';
@@ -26,7 +26,7 @@ function App() {
         </li>
 
         <li>
-          <Link to="/game">Game</Link>
+          <Link to="/board">Board</Link>
         </li>
       </ul>
 
@@ -36,8 +36,8 @@ function App() {
             <Home />
           </Route>
 
-          <Route exact path="/game">
-            <Game />
+          <Route exact path="/board">
+            <Board />
           </Route>
 
           <Route exact path="/pickSide">

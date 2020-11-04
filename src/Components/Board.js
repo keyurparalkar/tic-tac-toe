@@ -1,10 +1,20 @@
 import React from 'react';
+import {connect} from 'react-redux';
+
 
 import Square from './Square.js';
 import './StyleSheets/Board.css';
 import reset_icon from './Icons/update-arrow.svg';
 import O from './Icons/o.svg';
 import x_mark from './Icons/x-mark.svg';
+import {setMarkerOnBoard, getSide} from './Store/ActionCreators.js';
+
+const mapStateToProps = (state) => {
+    return {
+        isX: state.isX,
+        boardState: state.boardState
+    }
+}
 
 class Board extends React.Component {
     constructor(props) {
@@ -22,13 +32,13 @@ class Board extends React.Component {
     }
 
     togglePlayerMarker(i) {
-        const square = this.state.boardState.slice();
-        let isXVal = this.state.isX;
+        const square = this.props.boardState.slice();
+        let isXVal = this.props.isX;
 
         if (this.calculateWinner(square) || square[i]) {
             return;
         }
-        if (this.state.isX) {
+        if (this.props.isX) {
             square[i] = 'X';
             isXVal = false;
         } else {
@@ -36,13 +46,14 @@ class Board extends React.Component {
             isXVal = true;
         }
 
-        this.setState({ boardState: square, isX: isXVal });
+        this.props.dispatch(setMarkerOnBoard(square, isXVal));
+        // this.setState({ boardState: square, isX: isXVal });
     }
 
     renderSquare(i) {
         return (
-            <Square value={this.state.boardState[i]===null ? this.state.boardState[i] : 
-                this.state.boardState[i]==='X' ? <img src={x_mark} alt="x-mark" className="board-x-mark"/> : <img src={O} alt="o-mark" className="board-o-mark"/>}
+            <Square value={this.props.boardState[i]===null ? this.props.boardState[i] : 
+                this.props.boardState[i]==='X' ? <img src={x_mark} alt="x-mark" className="board-x-mark"/> : <img src={O} alt="o-mark" className="board-o-mark"/>}
             
             onClick={() => this.togglePlayerMarker(i)} />
         );
@@ -84,9 +95,6 @@ class Board extends React.Component {
         //Generate random number
         let num = this.generateRandomNumber(min_pos, max_pos);
 
-        // if(this.state.isX === false){
-        //     this.renderSquare(num);
-        // }
         return num;
     }
 
@@ -99,10 +107,8 @@ class Board extends React.Component {
     }
 
     render() {
-        const winner = this.calculateWinner(this.state.boardState);
-        let status = winner ? `Winner: ${winner}` : this.state.isX ? `Current Player: X` : `Current Player: O`;
-
-
+        const winner = this.calculateWinner(this.props.boardState);
+        let status = winner ? `Winner: ${winner}` : this.props.isX ? `Current Player: X` : `Current Player: O`;
 
         return (
             <div className="board-container">
@@ -141,4 +147,5 @@ class Board extends React.Component {
     }
 }
 
-export default Board;
+
+export default connect(mapStateToProps)(Board)

@@ -16,9 +16,10 @@ export const getSide = (side) => {
     }
 }
 
-export const setMarkerOnBoard = (ind) => {
+export const setMarkerOnBoard = (square, nextTurn) => {
     return {
         type: SET_MARKER_ONBOARD,
-        index: ind
+        square: square,
+        nextTurn: nextTurn
     }
-}
+}   

@@ -1,7 +1,8 @@
 const appState = {
     isX: true,
     boardState: new Array(9).fill(null),
-    opponentPlayer: null,
+    playMode: null,
+    friendName: null,
     marker:null,
     index:null
 }
