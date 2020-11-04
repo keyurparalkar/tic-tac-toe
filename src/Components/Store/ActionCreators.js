@@ -1,5 +1,5 @@
 export const SET_PLAY_MODE = 'SET_PLAY_MODE';
-export const GET_SIDE = 'GET_SIDE';
+export const SET_SIDE = 'SET_SIDE';
 export const SET_MARKER_ONBOARD = 'SET_MARKER_ONBOARD';
 
 export const setPlayMode = (pm, frd) =>{
@@ -10,9 +10,9 @@ export const setPlayMode = (pm, frd) =>{
     }
 }
 
-export const getSide = (side) => {
+export const setSide = (side) => {
     return {
-        type: GET_SIDE,
+        type: SET_SIDE,
         marker: side
     }
 }

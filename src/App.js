@@ -10,13 +10,13 @@ import { Provider } from 'react-redux';
 import './App.css';
 import Board from './Components/Board.js';
 import Home from './Components/Home.js';
-import { PickSide } from './Components/PickSide.js';
+import PickSide from './Components/PickSide.js';
 import store from './Components/Store/Store.js';
 
 function App() {
   return (
     <Router>
-      <ul>
+      {/* <ul>
         <li>
           <Link to="/">Home</Link>
         </li>
@@ -28,7 +28,7 @@ function App() {
         <li>
           <Link to="/board">Board</Link>
         </li>
-      </ul>
+      </ul> */}
 
       <Switch>
         <Provider store={store}>

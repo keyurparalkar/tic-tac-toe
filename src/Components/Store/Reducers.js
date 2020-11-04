@@ -1,6 +1,6 @@
 import {
     SET_PLAY_MODE,
-    GET_SIDE,
+    SET_SIDE,
     SET_MARKER_ONBOARD
 } from './ActionCreators.js';
 
@@ -10,7 +10,7 @@ const reducer = (state, action) => {
         case SET_PLAY_MODE:
             return {...state, playMode: action.playMode, friendName: action.friend}
         
-        case GET_SIDE:
+        case SET_SIDE:
             return {...state, marker: action.marker}
 
         case SET_MARKER_ONBOARD:

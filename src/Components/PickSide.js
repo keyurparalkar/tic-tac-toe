@@ -1,10 +1,19 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import "./StyleSheets/PickSide.css";
 import O from './Icons/o.svg';
 import x_mark from './Icons/x-mark.svg';
+import {setSide} from './Store/ActionCreators.js';
+import {Link} from 'react-router-dom';
 
-export class PickSide extends React.Component {
+const mapStateToProps = (state) => {
+    return {
+        marker: state.marker
+    }
+}
+
+class PickSide extends React.Component {
     constructor(props){
         super(props);
 
@@ -24,9 +33,11 @@ export class PickSide extends React.Component {
         if(event.currentTarget === this.radio1.current){
             this.marker1.current.style.opacity = 1;
             this.marker2.current.style.opacity = 0.5;
+            this.props.dispatch(setSide('X'));
         } else if(event.currentTarget === this.radio2.current){
             this.marker2.current.style.opacity = 1;
-            this.marker1.current.style.opacity = 0.5
+            this.marker1.current.style.opacity = 0.5;
+            this.props.dispatch(setSide('O'));
         }
     }
 
@@ -47,7 +58,13 @@ export class PickSide extends React.Component {
                 </div>
 
             </div>
-            <button>Continue</button>
+
+            <Link to="/board">
+                <button>Continue</button>
+            </Link>
+            
         </div>)
     }
 }
+
+export default connect(mapStateToProps)(PickSide);
