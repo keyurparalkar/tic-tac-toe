@@ -1,0 +1,28 @@
+div.pickside-container{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div.marker-icons{
+    display:flex;
+    flex-direction: row;
+}
+
+[class*="marker-"]{
+    display: flex;
+    flex-direction: column;
+}
+
+[class*="marker-"] img{
+    width:256px;
+    height:256px;
+}
+
+@media only screen and (max-width:768px){
+    [class*="marker-"] img{
+        width:200px;
+        height:200px;
+    }   
+}

@@ -1,4 +1,23 @@
+div.board-container{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
 div.board {
     display: grid;
-    grid-template-columns: 50px 50px 50px auto;
+    grid-template-columns: 100px 100px 100px auto;
+}
+
+div.score-board{
+    display:flex;
+    flex-direction:row;
+    width:20%;
+    justify-content: space-evenly;
+}
+
+.reset-icon{
+    width:40px;
+    height:40px;
 }
