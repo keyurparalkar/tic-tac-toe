@@ -3,8 +3,7 @@ const appState = {
     boardState: new Array(9).fill(null),
     playMode: null,
     friendName: null,
-    marker:null,
-    index:null
+    marker:null
 }
 
 export default appState;

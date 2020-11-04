@@ -1,11 +1,12 @@
-export const GET_PLAY_MODE = 'GET_PLAY_MODE';
+export const SET_PLAY_MODE = 'SET_PLAY_MODE';
 export const GET_SIDE = 'GET_SIDE';
 export const SET_MARKER_ONBOARD = 'SET_MARKER_ONBOARD';
 
-export const getPlayMode = (op) =>{
+export const setPlayMode = (pm, frd) =>{
     return {
-        type: GET_PLAY_MODE,
-        opponentPlayer: op
+        type: SET_PLAY_MODE,
+        playMode: pm,   
+        friend: frd
     }
 }
 

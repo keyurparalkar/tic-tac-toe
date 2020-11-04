@@ -4,10 +4,20 @@ div.home-container, div.pick-player-buttons{
     align-items: center;    
 }
 
+.pick-player-buttons a{
+    color: black;
+    text-decoration: none;
+}
+
+.friendName {
+    display:none;
+}
+
 div.marker-icons{
     display:flex;
     flex-direction:row;
 }
+
 @media only screen and (max-width: 768px){
     div.marker-icons img{
         width: 100px;
