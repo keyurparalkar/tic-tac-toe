@@ -1,7 +1,10 @@
 import React from 'react';
-import Square from './Square.js';
 
+import Square from './Square.js';
 import './StyleSheets/Board.css';
+import reset_icon from './Icons/update-arrow.svg';
+import O from './Icons/o.svg';
+import x_mark from './Icons/x-mark.svg';
 
 class Board extends React.Component {
     constructor(props) {
@@ -38,7 +41,10 @@ class Board extends React.Component {
 
     renderSquare(i) {
         return (
-            <Square value={this.state.boardState[i]} onClick={() => this.togglePlayerMarker(i)} />
+            <Square value={this.state.boardState[i]===null ? this.state.boardState[i] : 
+                this.state.boardState[i]==='X' ? <img src={x_mark} alt="x-mark" className="board-x-mark"/> : <img src={O} alt="o-mark" className="board-o-mark"/>}
+            
+            onClick={() => this.togglePlayerMarker(i)} />
         );
     }
 
@@ -101,6 +107,13 @@ class Board extends React.Component {
         return (
             <div className="board-container">
                 <h1> Tic-Tac-Toe </h1>
+                <div className="score-board">
+                    <span>Alex</span>
+                    <div className="score">
+                        1 - 0
+                    </div>
+                    <span>AI</span>
+                </div>
                 <span>{status}</span>
                 <div className="board">
                     <div className="row-1">
@@ -118,8 +131,11 @@ class Board extends React.Component {
                         {this.renderSquare(7)}
                         {this.renderSquare(8)}
                     </div>
-
                 </div>
+
+                
+                <img src={reset_icon} alt="reset-icon" className="reset-icon" onClick={() => alert('heelo')} />
+                
             </div>
         );
     }
