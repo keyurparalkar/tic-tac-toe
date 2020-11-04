@@ -5,12 +5,13 @@ import {
   Link
 } from 'react-router-dom';
 import React from 'react';
+import { Provider } from 'react-redux';
 
 import './App.css';
 import { Game } from './Components/Game.js';
-import {Home} from './Components/Home.js';
-import {PickSide} from './Components/PickSide.js';
-
+import Home from './Components/Home.js';
+import { PickSide } from './Components/PickSide.js';
+import store from './Components/Store/Store.js';
 
 function App() {
   return (
@@ -30,19 +31,22 @@ function App() {
       </ul>
 
       <Switch>
-        <Route exact path="/">
-            <Home/>
-        </Route>
+        <Provider store={store}>
+          <Route exact path="/">
+            <Home />
+          </Route>
 
-        <Route exact path="/game">
-            <Game/>
-        </Route>
+          <Route exact path="/game">
+            <Game />
+          </Route>
 
-        <Route exact path="/pickSide">
-            <PickSide/>
-        </Route>
+          <Route exact path="/pickSide">
+            <PickSide />
+          </Route>
+        </Provider>
 
       </Switch>
+
     </Router>
 
   );
