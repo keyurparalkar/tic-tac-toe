@@ -9,6 +9,11 @@ div.home-container, div.pick-player-buttons{
     text-decoration: none;
 }
 
+div.enter-name-container{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+}
 div.playmode-container{
     display:none;
 }

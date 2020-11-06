@@ -12,7 +12,9 @@ import {setMarkerOnBoard} from './Store/ActionCreators.js';
 const mapStateToProps = (state) => {
     return {
         isX: state.isX,
-        boardState: state.boardState
+        boardState: state.boardState,
+        currentPlayerName: state.currentPlayerName,
+        opponentName: state.opponentName
     }
 }
 
@@ -114,11 +116,11 @@ class Board extends React.Component {
             <div className="board-container">
                 <h1> Tic-Tac-Toe </h1>
                 <div className="score-board">
-                    <span>Alex</span>
+                    <span>{this.props.currentPlayerName}</span>
                     <div className="score">
                         1 - 0
                     </div>
-                    <span>AI</span>
+                    <span>{this.props.opponentName}</span>
                 </div>
                 <span>{status}</span>
                 <div className="board">

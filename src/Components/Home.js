@@ -56,7 +56,7 @@ class Home extends React.Component {
                 </div>
 
                 <div className="enter-name-container" ref={this.nameContainer}>
-                    <label>Enter your name</label>
+                    <label><h2>Enter your name</h2></label>
                     <input type="text"/>
                     <button onClick={this.setCurrentPlayerName}>Submit</button>
                 </div>
