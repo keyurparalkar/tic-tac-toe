@@ -7,7 +7,7 @@ import './StyleSheets/Board.css';
 import reset_icon from './Icons/update-arrow.svg';
 import O from './Icons/o.svg';
 import x_mark from './Icons/x-mark.svg';
-import {setMarkerOnBoard, getSide} from './Store/ActionCreators.js';
+import {setMarkerOnBoard} from './Store/ActionCreators.js';
 
 const mapStateToProps = (state) => {
     return {

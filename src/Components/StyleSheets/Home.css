@@ -9,7 +9,11 @@ div.home-container, div.pick-player-buttons{
     text-decoration: none;
 }
 
-.friendName {
+div.playmode-container{
+    display:none;
+}
+
+.opponentName {
     display:none;
 }
 
