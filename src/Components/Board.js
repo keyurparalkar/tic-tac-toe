@@ -162,6 +162,8 @@ class Board extends React.Component {
             }else{
                 status = `Winner: ${this.props.opponentName}`;
             }                
+        }else if(winner===null && !this.props.boardState.includes(null)){
+            status = 'Draw!!'
         } else if(this.props.isX){
             status = `Current Player: X`;
         } else {
