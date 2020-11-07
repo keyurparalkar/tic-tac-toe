@@ -17,10 +17,11 @@ export const setPlayMode = (pm, frd) =>{
     }
 }
 
-export const setSide = (side) => {
+export const setSide = (side, setX, setO = false) => {
     return {
         type: SET_SIDE,
-        marker: side
+        marker: side,
+        isX: setX
     }
 }
 

@@ -33,11 +33,11 @@ class PickSide extends React.Component {
         if(event.currentTarget === this.radio1.current){
             this.marker1.current.style.opacity = 1;
             this.marker2.current.style.opacity = 0.5;
-            this.props.dispatch(setSide('X'));
+            this.props.dispatch(setSide('X', true));
         } else if(event.currentTarget === this.radio2.current){
             this.marker2.current.style.opacity = 1;
             this.marker1.current.style.opacity = 0.5;
-            this.props.dispatch(setSide('O'));
+            this.props.dispatch(setSide('O', false, true));
         }
     }
 

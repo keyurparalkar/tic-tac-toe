@@ -7,14 +7,16 @@ import './StyleSheets/Board.css';
 import reset_icon from './Icons/update-arrow.svg';
 import O from './Icons/o.svg';
 import x_mark from './Icons/x-mark.svg';
-import {setMarkerOnBoard} from './Store/ActionCreators.js';
+import {setMarkerOnBoard, setPlayerName} from './Store/ActionCreators.js';
 
 const mapStateToProps = (state) => {
     return {
         isX: state.isX,
+        isO: state.isO,
         boardState: state.boardState,
         currentPlayerName: state.currentPlayerName,
-        opponentName: state.opponentName
+        opponentName: state.opponentName,
+        marker: state.marker
     }
 }
 
@@ -43,6 +45,7 @@ class Board extends React.Component {
         if (this.props.isX) {
             square[i] = 'X';
             isXVal = false;
+
         } else {
             square[i] = 'O';
             isXVal = true;
@@ -109,18 +112,45 @@ class Board extends React.Component {
     }
 
     render() {
-        const winner = this.calculateWinner(this.props.boardState);
-        let status = winner ? `Winner: ${winner}` : this.props.isX ? `Current Player: X` : `Current Player: O`;
+        const winner = this.calculateWinner(this.props.boardState);        
+        let status = null;
+        let opponentMarker = null;
+
+        if(winner){
+            if(winner === this.props.marker)
+                status = `Winner: ${this.props.currentPlayerName}`;
+            else
+                status = `Winner: ${this.props.opponentName}`;
+        } else if(this.props.isX){
+            status = `Current Player: X`;
+        } else {
+            status = `Current Player: O`;
+        }
+            
+        // let status = winner ? `Winner: ${winner === this.props.marker 
+        //     ? this.props.currentPlayerName : this.props.opponentName}` : this.props.isX ?
+        //  `Current Player: ${this.props.currentPlayerName}` : `Current Player: ${this.props.opponentName}`;
+        
+
+        if(this.props.marker === 'X')
+            opponentMarker = 'O';
+        else if(this.props.marker === 'O')
+            opponentMarker = 'X';
+        // let opponentMarker = this.props.marker === 'X' ? 'O' : this.props.marker;
 
         return (
             <div className="board-container">
                 <h1> Tic-Tac-Toe </h1>
                 <div className="score-board">
-                    <span>{this.props.currentPlayerName}</span>
+                    <span>{this.props.currentPlayerName}<br/>
+                        {this.props.marker}
+                    </span>
                     <div className="score">
                         1 - 0
                     </div>
-                    <span>{this.props.opponentName}</span>
+                    <span>{this.props.opponentName}<br/>
+                        {opponentMarker}
+                    </span>
                 </div>
                 <span>{status}</span>
                 <div className="board">

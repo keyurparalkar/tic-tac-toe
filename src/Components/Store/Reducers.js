@@ -12,7 +12,7 @@ const reducer = (state, action) => {
             return {...state, playMode: action.playMode, opponentName: action.opponent}
         
         case SET_SIDE:
-            return {...state, marker: action.marker}
+            return {...state, marker: action.marker, isX: action.isX}
 
         case SET_MARKER_ONBOARD:
             return {...state, boardState: action.square, isX: action.nextTurn}
