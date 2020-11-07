@@ -7,7 +7,7 @@ import './StyleSheets/Board.css';
 import reset_icon from './Icons/update-arrow.svg';
 import O from './Icons/o.svg';
 import x_mark from './Icons/x-mark.svg';
-import {setMarkerOnBoard} from './Store/ActionCreators.js';
+import {setMarkerOnBoard, clearBoard} from './Store/ActionCreators.js';
 
 const mapStateToProps = (state) => {
     return {
@@ -34,6 +34,11 @@ class Board extends React.Component {
         this.renderSquare = this.renderSquare.bind(this);
         this.generateRandomNumber = this.generateRandomNumber.bind(this);
         this.computerTurn = this.computerTurn.bind(this);
+        this.handleResetBoard = this.handleResetBoard.bind(this);
+    }
+
+    handleResetBoard() {
+        this.props.dispatch(clearBoard());
     }
 
     togglePlayerMarker(i) {
@@ -185,7 +190,7 @@ class Board extends React.Component {
                 </div>
 
                 
-                <img src={reset_icon} alt="reset-icon" className="reset-icon" onClick={() => alert('heelo')} />
+                <img src={reset_icon} alt="reset-icon" className="reset-icon" onClick={this.handleResetBoard} />
                 
             </div>
         );

@@ -2,7 +2,8 @@ import {
     SET_PLAY_MODE,
     SET_SIDE,
     SET_MARKER_ONBOARD,
-    SET_CURRENT_PLAYERNAME
+    SET_CURRENT_PLAYERNAME,
+    CLEAR_BOARD
 } from './ActionCreators.js';
 
 
@@ -19,6 +20,9 @@ const reducer = (state, action) => {
 
         case SET_CURRENT_PLAYERNAME:
             return {...state, currentPlayerName: action.currentPlayerName}
+        
+        case CLEAR_BOARD:
+            return {...state, boardState: new Array(9).fill(null)}
 
         default: return state;
     }

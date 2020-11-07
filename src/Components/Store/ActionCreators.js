@@ -2,6 +2,7 @@ export const SET_PLAY_MODE = 'SET_PLAY_MODE';
 export const SET_SIDE = 'SET_SIDE';
 export const SET_MARKER_ONBOARD = 'SET_MARKER_ONBOARD';
 export const SET_CURRENT_PLAYERNAME = 'SET_CURRENT_PLAYERNAME';
+export const CLEAR_BOARD = 'CLEAR_BOARD';
 
 export const setPlayerName = (name) => {
     return {
@@ -33,3 +34,9 @@ export const setMarkerOnBoard = (square, nextTurn, aiTurn = false) => {
         aiSteps: aiTurn
     }
 }   
+
+export const clearBoard = () => {
+    return{
+        type: CLEAR_BOARD
+    }
+}
