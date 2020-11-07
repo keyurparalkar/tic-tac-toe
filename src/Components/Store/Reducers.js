@@ -3,7 +3,9 @@ import {
     SET_SIDE,
     SET_MARKER_ONBOARD,
     SET_CURRENT_PLAYERNAME,
-    CLEAR_BOARD
+    CLEAR_BOARD,
+    INIT_SCOREBOARD,
+    UPDATE_SCOREBOARD
 } from './ActionCreators.js';
 
 
@@ -23,6 +25,15 @@ const reducer = (state, action) => {
         
         case CLEAR_BOARD:
             return {...state, boardState: new Array(9).fill(null)}
+        
+        case INIT_SCOREBOARD:
+            return {...state, scoreBoard:action.sA}
+        
+        case UPDATE_SCOREBOARD:
+            let temp = Object.assign(state.scoreBoard);
+            console.log('TEMP KEY ===',action.key)
+            temp[`${action.key}`].push(action.val);
+            return {...state, scoreBoard: temp}
 
         default: return state;
     }
