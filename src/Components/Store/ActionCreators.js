@@ -25,10 +25,11 @@ export const setSide = (side, setX, setO = false) => {
     }
 }
 
-export const setMarkerOnBoard = (square, nextTurn) => {
+export const setMarkerOnBoard = (square, nextTurn, aiTurn = false) => {
     return {
         type: SET_MARKER_ONBOARD,
         square: square,
-        nextTurn: nextTurn
+        nextTurn: nextTurn,
+        aiSteps: aiTurn
     }
 }   

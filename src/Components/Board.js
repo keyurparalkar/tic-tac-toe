@@ -7,7 +7,7 @@ import './StyleSheets/Board.css';
 import reset_icon from './Icons/update-arrow.svg';
 import O from './Icons/o.svg';
 import x_mark from './Icons/x-mark.svg';
-import {setMarkerOnBoard, setPlayerName} from './Store/ActionCreators.js';
+import {setMarkerOnBoard} from './Store/ActionCreators.js';
 
 const mapStateToProps = (state) => {
     return {
@@ -16,7 +16,8 @@ const mapStateToProps = (state) => {
         boardState: state.boardState,
         currentPlayerName: state.currentPlayerName,
         opponentName: state.opponentName,
-        marker: state.marker
+        marker: state.marker,
+        aiSteps: state.aiSteps
     }
 }
 
@@ -38,6 +39,7 @@ class Board extends React.Component {
     togglePlayerMarker(i) {
         const square = this.props.boardState.slice();
         let isXVal = this.props.isX;
+        let aiTurn = this.props.aiSteps;
 
         if (this.calculateWinner(square) || square[i]) {
             return;
@@ -45,14 +47,19 @@ class Board extends React.Component {
         if (this.props.isX) {
             square[i] = 'X';
             isXVal = false;
-
+            aiTurn = false;
         } else {
             square[i] = 'O';
             isXVal = true;
+            aiTurn = true;
         }
 
+        if(this.props.opponentName === 'AI'){
+            this.props.dispatch(setMarkerOnBoard(square, isXVal, aiTurn));
+        }else{
         this.props.dispatch(setMarkerOnBoard(square, isXVal));
         // this.setState({ boardState: square, isX: isXVal });
+        }
     }
 
     renderSquare(i) {
@@ -104,10 +111,16 @@ class Board extends React.Component {
     }
 
     componentDidUpdate() {
-        if (this.state.isX === false) {
-            let x = this.computerTurn();
-            console.log(x);
-            this.togglePlayerMarker(x);
+        if (this.props.opponentName === 'AI') {
+            if(this.props.marker === 'X' && this.props.aiSteps === false){
+                let x = this.computerTurn();
+                console.log(x);
+                this.togglePlayerMarker(x);
+            }else  if(this.props.marker === 'O' && this.props.aiSteps === true) {
+                let x = this.computerTurn();
+                console.log(x);
+                this.togglePlayerMarker(x);
+            }
         }
     }
 

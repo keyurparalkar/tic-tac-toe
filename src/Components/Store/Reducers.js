@@ -15,7 +15,7 @@ const reducer = (state, action) => {
             return {...state, marker: action.marker, isX: action.isX}
 
         case SET_MARKER_ONBOARD:
-            return {...state, boardState: action.square, isX: action.nextTurn}
+            return {...state, boardState: action.square, isX: action.nextTurn, aiSteps: action.aiSteps}
 
         case SET_CURRENT_PLAYERNAME:
             return {...state, currentPlayerName: action.currentPlayerName}
