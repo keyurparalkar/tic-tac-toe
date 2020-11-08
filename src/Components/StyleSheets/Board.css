@@ -3,6 +3,11 @@ div.board-container{
     flex-direction:column;
     justify-content: center;
     align-items: center;
+    margin-top:50px;
+}
+.game-status{
+    margin-top:10px;
+    margin-bottom:10px;
 }
 
 div.board {
@@ -15,9 +20,28 @@ div.score-board{
     flex-direction:row;
     width:20%;
     justify-content: space-evenly;
+    margin-bottom:20px;
 }
 
 .reset-icon{
     width:40px;
     height:40px;
+    margin-top:20px;
+}
+
+.score{
+    box-shadow: 0px 3px 6px 4px #cbbcb1;
+    border-radius: 30px;
+    padding:5px;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-names{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    text-align:center;
 }
