@@ -39,7 +39,9 @@ class Home extends React.Component {
     setCurrentPlayerName(event){
         this.props.dispatch(setPlayerName(this.nameContainer.current.children[1].value));
         this.nameContainer.current.style.display = 'none';
-        this.playModeContainer.current.style.display = 'block';
+        this.playModeContainer.current.style.display = 'flex';
+        this.playModeContainer.current.style.flexDirection = 'column';
+        this.playModeContainer.current.style.alignItems = 'center';
     }
 
     submitopponentName() {
@@ -51,8 +53,8 @@ class Home extends React.Component {
         return (
             <div className="home-container">
                 <div className="marker-icons">
-                    <img src={x_mark} alt="x-marker" />
-                    <img src={O} alt="o-marker" />
+                    <img src={x_mark} className="x-marker" alt="x-marker" />
+                    <img src={O} className="o-marker" alt="o-marker" />
                 </div>
 
                 <div className="enter-name-container" ref={this.nameContainer}>

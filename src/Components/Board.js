@@ -107,7 +107,7 @@ class Board extends React.Component {
 
     computerTurn() {
         //Getting blank array pos:
-        let blank_pos = this.state.boardState.map((val, index) => val === null ? index : 0).filter((val) => val !== 0);
+        let blank_pos = this.props.boardState.map((val, index) => val === null ? index : 0).filter((val) => val !== 0);
         let min_pos = blank_pos[0];
         let max_pos = blank_pos[blank_pos.length - 1];
         //Generate random number
@@ -178,19 +178,17 @@ class Board extends React.Component {
 
         return (
             <div className="board-container">
-                <h1> Tic-Tac-Toe </h1>
                 <div className="score-board">
-                    <span>{this.props.currentPlayerName}<br/>
+                    <span className="player-names">{this.props.currentPlayerName}<br/>
                         {this.props.marker}
                     </span>
                     <div className="score" ref={this.scoreRef}>                        
-                        
                     </div>
-                    <span>{this.props.opponentName}<br/>
+                    <span className="player-names">{this.props.opponentName}<br/>
                         {opponentMarker}
                     </span>
                 </div>
-                <span>{status}</span>
+                <span className="game-status">{status}</span>
                 <div className="board">
                     <div className="row-1">
                         {this.renderSquare(0)}

@@ -11,3 +11,11 @@ div.square {
 img.board-x-mark, img.board-o-mark{
     padding:10px;
 }
+
+.board-o-mark{
+    filter: invert(55%) sepia(100%) saturate(461%) hue-rotate(358deg) brightness(89%) contrast(107%) drop-shadow(2px 4px 8px #464141);
+}
+
+.board-x-mark{
+    filter: invert(22%) sepia(61%) saturate(5969%) hue-rotate(205deg) brightness(90%) contrast(105%) drop-shadow(2px 4px 8px #464141);
+}
